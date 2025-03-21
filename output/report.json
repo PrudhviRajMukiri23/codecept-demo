@@ -1,0 +1,195 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-03-21T03:32:26.083Z",
+    "end": "2025-03-21T03:32:31.393Z",
+    "duration": 5310,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9abbfcc4-4d3e-474d-8b00-0fc83555fa9b",
+      "title": "",
+      "fullFile": "C:\\Users\\prudhvi.mukiri\\Desktop\\codeceptjs-demo\\src\\navigation_test.ts",
+      "file": "\\src\\navigation_test.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7db41117-146f-45b5-b549-f6bd051a7bae",
+          "title": "navigation",
+          "fullFile": "C:\\Users\\prudhvi.mukiri\\Desktop\\codeceptjs-demo\\src\\navigation_test.ts",
+          "file": "\\src\\navigation_test.ts",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook: codeceptjs.beforeSuite in \"navigation\"",
+              "fullTitle": "navigation \"before all\" hook: codeceptjs.beforeSuite in \"navigation\"",
+              "timedOut": false,
+              "duration": 158,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "suiteSetup(suite)",
+              "err": {},
+              "uuid": "1f994530-4d60-4f35-af38-01b4ae6996af",
+              "parentUUID": "7db41117-146f-45b5-b549-f6bd051a7bae",
+              "isHook": true,
+              "skipped": false
+            },
+            {
+              "title": "\"before each\" hook: codeceptjs.before in \"navigation\"",
+              "fullTitle": "navigation \"before each\" hook: codeceptjs.before in \"navigation\"",
+              "timedOut": false,
+              "duration": 169,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "setup(suite)",
+              "err": {},
+              "uuid": "cf420896-5f80-4110-aab6-7f7f79c7181f",
+              "parentUUID": "7db41117-146f-45b5-b549-f6bd051a7bae",
+              "isHook": true,
+              "skipped": false
+            },
+            {
+              "title": "\"before each\" hook: Before in \"navigation\"",
+              "fullTitle": "navigation \"before each\" hook: Before in \"navigation\"",
+              "timedOut": false,
+              "duration": 4498,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "I }) => {\n    I.amOnPage(\"https://www.google.com\");",
+              "err": {},
+              "uuid": "33b0249f-0d4d-4f79-8c5c-d96b467e6296",
+              "parentUUID": "7db41117-146f-45b5-b549-f6bd051a7bae",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook: codeceptjs.afterSuite in \"navigation\"",
+              "fullTitle": "navigation \"after all\" hook: codeceptjs.afterSuite in \"navigation\"",
+              "timedOut": false,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "suiteTeardown(suite)",
+              "err": {},
+              "uuid": "25c8108e-b8f9-46ed-b01e-d2c32a109326",
+              "parentUUID": "7db41117-146f-45b5-b549-f6bd051a7bae",
+              "isHook": true,
+              "skipped": false
+            },
+            {
+              "title": "\"after each\" hook: finalize codeceptjs in \"navigation\"",
+              "fullTitle": "navigation \"after each\" hook: finalize codeceptjs in \"navigation\"",
+              "timedOut": false,
+              "duration": 7,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "teardown(suite)",
+              "err": {},
+              "uuid": "807538fc-a8f2-4d2c-bd5a-9e853f3b971b",
+              "parentUUID": "7db41117-146f-45b5-b549-f6bd051a7bae",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "google search test",
+              "fullTitle": "navigation: google search test",
+              "timedOut": false,
+              "duration": 467,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "I }) => {\n    I.seeElement({ xpath: \"//textarea[@name='q']\" });\n    const title = await I.grabTitle();\n    // console.log(\"==================================>>>>>>>>>>>>>>>>>>\"+ title)\n    I.seeTitleEquals(\"Google\");\n    (0, console_1.assert)(title === 'Google');\n    I.fillField({ xpath: \"//textarea[@name='q']\" }, 'codeceptjs');\n    let value = await I.grabValueFrom({ xpath: \"//textarea[@name='q']\" });\n    // console.log(\"==================================>>>>>>>>>>>>>>>>>>\"+ value)\n    (0, console_1.assert)(value === 'codeceptjs');\n    I.customeKeyboardPress('Enter');",
+              "err": {},
+              "uuid": "28fc8a38-e2dd-4473-a8df-4790e28a0de8",
+              "parentUUID": "7db41117-146f-45b5-b549-f6bd051a7bae",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "28fc8a38-e2dd-4473-a8df-4790e28a0de8"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 467,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 0
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 0
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.1.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "./output",
+        "reportFilename": "report"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
