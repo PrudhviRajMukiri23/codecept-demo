@@ -25,11 +25,11 @@ jobs:
         run: npx playwright install
       - name: 'Run poc tests'
         run: npx codeceptjs run --reporter mocha-multi
-      # - name: XUnit Viewer
-      #   uses: AutoModality/action-xunit-viewer@v1.0.1
-      #   with:
-      #     results: ./output/result.xml
-      #     output: ./output/report.html
+      - name: XUnit Viewer
+        uses: AutoModality/action-xunit-viewer@v1.0.1
+        with:
+          results: ./output/result.xml
+          output: ./output/report.html
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v4.4.3
         with:
