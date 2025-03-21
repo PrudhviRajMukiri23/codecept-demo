@@ -25,14 +25,11 @@ jobs:
         run: npx playwright install
       - name: 'Run poc tests'
         run: npx codeceptjs run --reporter mocha-multi
-      - name: Publish Test Results
-        uses: MichaelVoelkel/test-reporter@v1.8.0
-        if: always()
+      - name: Upload JUnit test results as artifacts
+        uses: actions/upload-artifact@v2
         with:
-          path: |
-            output/*.xml
-            output/*.json
-          reporter: mocha-json
+          name: test-results
+          path: output/*.xml
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v4.4.3
         with:
