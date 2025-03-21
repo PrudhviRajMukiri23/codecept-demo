@@ -60,7 +60,7 @@ jobs:
         with:
           github_token: ${{ secrets.GH_TOKEN }}
           publish_branch: gh_pages
-          publish-dir: allure-history
+          publish_dir: allure-history
 
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v4.4.3
