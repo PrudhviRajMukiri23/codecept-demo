@@ -18,6 +18,12 @@
         "codeceptjs": "^3.7.2",
         "playwright": "^1.51.0",
         "ts-node": "^10.9.2",
-        "typescript": "^5.8.2"
+        "typescript": "^5.8.2",
+        "mocha-junit-reporter": "^2.2.1",
+        "mocha-multi": "^1.1.7",
+        "mochawesome": "^7.1.3",
+        "mocha": "^11.1.0"
+        
+
     }
 }
