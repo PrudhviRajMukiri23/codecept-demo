@@ -25,11 +25,11 @@ jobs:
         run: npx playwright install
       - name: 'Run poc tests'
         run: npx codeceptjs run --reporter mocha-multi
-      - name: Upload JUnit test results as artifacts
-        uses: actions/upload-artifact@v2
+      - name: XUnit Viewer
+        uses: AutoModality/action-xunit-viewer@v1.0.1
         with:
-          name: test-results
-          path: output/*.xml
+          results: ./output/result.xml  # Path to your JUnit XML report
+          output: ./output/report.html  # Path where the HTML report will be generated
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v4.4.3
         with:
