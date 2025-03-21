@@ -21,6 +21,8 @@ jobs:
           node-version: '18.16.0'
       - name: "install dependencies"
         run: npm i
+      - name: 'Install playwright browsers'
+        run: npx playwright install
       - name: 'Run poc tests'
         run: npx codeceptjs run --reporter mocha-multi
       - name: 'Upload Artifact'
