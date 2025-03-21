@@ -11,58 +11,48 @@ jobs:
   poc_tests:
     runs-on: ubuntu-latest
     steps:
-      - name: "Check out main"
+      - name: "check out main"
         uses: actions/checkout@v3
         with:
           ref: 'main'
 
-      - name: "Install node"
+      - name: "install node"
         uses: actions/setup-node@v3
         with:
           node-version: '18.16.0'
 
-      - name: "Install dependencies"
+      - name: "install dependencies"
         run: npm i
 
-      - name: "Install playwright browsers"
+      - name: 'Install playwright browsers'
         run: npx playwright install
 
-      - name: "Run poc tests"
+      - name: 'Run poc tests'
         run: npx codeceptjs run --reporter mocha-multi
 
-      - name: "XUnit Viewer"
+      - name: XUnit Viewer
         uses: AutoModality/action-xunit-viewer@v1.0.1
         with:
           results: ./output/result.xml
 
-      - name: "Install Java 11 (Required for Allure)"
+      - name: 'Install Java 11 (Required for Allure)'
         run: sudo apt-get update && sudo apt-get install -y openjdk-11-jdk
 
-      - name: "Load test reports history"
-        uses: actions/checkout@v3
+      - name: 'Generate Allure Report'
+        run: npx allure generate allure-results --clean --output allure-report
+
+      - name: Deploy Allure Report to GitHub Pages
         if: always()
-        continue-on-error: true
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          ref: gh_pages
-          path: gh_pages
+          PERSONAL_TOKEN: ${{ secrets.GH_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: allure-report
 
-      - name: "Build test report"
-        uses: simple-elf/allure-report-action@v1.7
-        if: always()
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v4.4.3
         with:
-          gh_pages: gh_pages
-          allure_history: allure-history
-          allure_results: allure-results
-
-      - name: "Verify allure-history content"
-        run: |
-          echo "Contents of allure-history directory:"
-          ls -al allure-history  # List files in the allure-history directory
-          cat allure-history/index.html  # Display the contents of index.html (optional, for debugging)
+          name: poc-artifact
+          path: |
+            output
         if: always()
-
-      # Move the contents of allure-history to the root directory for proper serving
-      - name: "Move Allure Report to Root"
-        run: |
-          mv allure-history/* .   # Move all files from allure-history to the root folder
-          rm -rf allure-history   # Re
