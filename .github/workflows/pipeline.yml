@@ -1,0 +1,32 @@
+name: tests
+
+on:
+  push:
+    branches: 
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  poc_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "check out main"
+        uses: actions/checkout@v3
+        with:
+          ref: 'main'
+      - name: "install node"
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.16.0'
+      - name: "install dependencies"
+        run: npm i
+      - name: 'Run poc tests'
+        run: npx codeceptjs run --reporter mocha-multi
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v4.4.3
+        with:
+          name: poc-artifact
+          path: |
+            output
+        if: always()
