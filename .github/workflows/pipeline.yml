@@ -54,6 +54,13 @@ jobs:
           allure_history: allure-history
           allure_results: allure-results
 
+      - name: Verify allure-history content
+        run: |
+          echo "Contents of allure-history directory:"
+          ls -al allure-history  # List files in the allure-history directory
+          cat allure-history/index.html  # Display the contents of index.html (optional, for debugging)
+        if: always()
+
       - name: Publish allure report
         uses: peaceiris/actions-gh-pages@v3
         if: always()
