@@ -44,5 +44,11 @@ export const config: CodeceptJS.MainConfig = {
         }
       }
     }
-  }
+  },
+  plugins: {
+    allure: {
+      enabled: true,
+      require: "allure-codeceptjs",
+    },
+  },
 }
