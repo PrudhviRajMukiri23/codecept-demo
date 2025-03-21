@@ -25,6 +25,13 @@ jobs:
         run: npx playwright install
       - name: 'Run poc tests'
         run: npx codeceptjs run --reporter mocha-multi
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          files: |
+            output/*.xml
+            output/*.json
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v4.4.3
         with:
