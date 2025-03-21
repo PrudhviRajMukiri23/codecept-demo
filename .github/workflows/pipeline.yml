@@ -26,12 +26,13 @@ jobs:
       - name: 'Run poc tests'
         run: npx codeceptjs run --reporter mocha-multi
       - name: Publish Test Results
-        uses: EnricoMi/publish-unit-test-result-action@v2
+        uses: MichaelVoelkel/test-reporter@v1.8.0
         if: always()
         with:
-          files: |
+          path: |
             output/*.xml
             output/*.json
+          reporter: mocha-json
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v4.4.3
         with:
