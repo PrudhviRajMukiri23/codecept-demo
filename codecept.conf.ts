@@ -20,31 +20,31 @@ export const config: CodeceptJS.MainConfig = {
     I: './steps_file'
   },
   name: 'codeceptjs',
-  "mocha": {
-    "reporterOptions": {
-      "codeceptjs-cli-reporter": {
-        "stdout": "-",
-        "options": {
-          "verbose": true,
-          "steps": true,
-        }
-      },
-      "mochawesome": {
-        "stdout": "./output/console.log",
-        "options": {
-          "reportDir": "./output",
-          "reportFilename": "report"
-        }
-      },
-      "mocha-junit-reporter": {
-        "stdout": "./output/console.log",
-        "options": {
-          "mochaFile": "./output/result.xml",
-          "attachments": true
-        }
-      }
-    }
-  },
+  // "mocha": {
+  //   "reporterOptions": {
+  //     "codeceptjs-cli-reporter": {
+  //       "stdout": "-",
+  //       "options": {
+  //         "verbose": true,
+  //         "steps": true,
+  //       }
+  //     },
+  //     "mochawesome": {
+  //       "stdout": "./output/console.log",
+  //       "options": {
+  //         "reportDir": "./output",
+  //         "reportFilename": "report"
+  //       }
+  //     },
+  //     "mocha-junit-reporter": {
+  //       "stdout": "./output/console.log",
+  //       "options": {
+  //         "mochaFile": "./output/result.xml",
+  //         "attachments": true
+  //       }
+  //     }
+  //   }
+  // },
   plugins: {
     allure: {
       enabled: true,

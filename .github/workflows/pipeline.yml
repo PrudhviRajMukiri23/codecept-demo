@@ -31,15 +31,15 @@ jobs:
         run: npm install -g allure-commandline --save-dev 
 
       - name: 'Run poc tests'
-        run: npx codeceptjs run --reporter mocha-multi
+        run: npx codeceptjs run # --reporter mocha-multi
 
-      - name: XUnit Viewer
-        uses: AutoModality/action-xunit-viewer@v1.0.1
-        with:
-          results: ./output/result.xml
+      # - name: XUnit Viewer
+      #   uses: AutoModality/action-xunit-viewer@v1.0.1
+      #   with:
+      #     results: ./output/result.xml
 
-      - name: 'Install Java 11 (Required for Allure)'
-        run: sudo apt-get update && sudo apt-get install -y openjdk-11-jdk
+      # - name: 'Install Java 11 (Required for Allure)'
+      #   run: sudo apt-get update && sudo apt-get install -y openjdk-11-jdk
 
       - name: 'Generate Allure Report'
         run: npx allure generate allure-results --clean --output allure-report
