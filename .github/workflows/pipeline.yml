@@ -29,6 +29,22 @@ jobs:
         uses: AutoModality/action-xunit-viewer@v1.0.1
         with:
           results: ./output/result.xml
+      - name: 'Install Java 11 (Required for Allure)'
+        run: sudo apt-get update && sudo apt-get install -y openjdk-11-jdk
+      - name: Load test reports as history
+        uses: simple-elf/allure-report-action@v1.7
+        if: always()
+        with:
+          gh_pages: gh_pages
+          allure_history: allure-history
+          allure_results: allure-results
+      - name: Publish allure report
+        uses: peaceiris/actions-gh-pages&v3
+        if: always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh_pages
+          publish-dir: allure-history
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v4.4.3
         with:
