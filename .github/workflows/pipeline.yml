@@ -25,13 +25,10 @@ jobs:
         run: npx playwright install
       - name: 'Run poc tests'
         run: npx codeceptjs run --reporter mocha-multi
-      - name: Publish Test Results
-        uses: EnricoMi/publish-unit-test-result-action@v2
-        if: always()
+      - name: XUnit Viewer
+        uses: AutoModality/action-xunit-viewer@v1.0.1
         with:
-          files: |
-            output/*.xml
-            output/*.json
+          results: ./output/result.xml
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v4.4.3
         with:
